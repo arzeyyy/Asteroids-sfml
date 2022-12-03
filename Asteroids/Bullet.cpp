@@ -8,9 +8,6 @@ const float Bullet::speed = 115.f;
 
 Bullet::Bullet()
 {
-	//direction.x = -cos(m_math->Deg2Rad(angle));
-	//direction.y = -sin(m_math->Deg2Rad(angle));
-
 }
 
 
