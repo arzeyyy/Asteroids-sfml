@@ -37,7 +37,9 @@ void Player::Init(sf::Vector2u size)
 	//set assets
 	m_assets.SetTexture("player", "Assets/Textures/asteroids_player.png");
 	player.setTexture(m_assets.GetTexture("player"));
+
 	m_assets.SetBuffer("thrust", "Assets/sound/thrust.wav");
+	sound.setBuffer(m_assets.GetBuffer("thrust"));
 	
 
 	//set size
@@ -136,7 +138,6 @@ void Player::Update(float deltaTime, sf::Vector2u size)
 
 void Player::MovePlay()
 {
-	sound.setBuffer(m_assets.GetBuffer("thrust"));
 	sound.setVolume(75);
 	sound.setLoop(true);
 	sound.play();

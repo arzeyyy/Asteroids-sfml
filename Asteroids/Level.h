@@ -58,10 +58,10 @@ private:
     float timer;
 
     bool canFire = false;
+    int index;
 
     //GUI
     int score;
     sf::Text score_text;
 };
-
 
