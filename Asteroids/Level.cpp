@@ -39,10 +39,7 @@ void Level::onEvent(const sf::Event &event)
 		timer = timeBetweenShots;
 
 		m_bullet.Init(m_player.player.getPosition(), m_player.player.getRotation());
-		m_assets.SetBuffer("fire", "Assets/sound/fire.wav");
-		bullet_sound.setBuffer(m_assets.GetBuffer("fire"));
-		bullet_sound.play();
-
+		BulletSound();
 		m_bullets.push_back(m_bullet);
 		std::cout << "bullet created" << std::endl;
 	}
@@ -129,6 +126,13 @@ void Level::Draw(sf::RenderWindow &m_window)
 	}
 }
 
+void Level::BulletSound()
+{
+	m_assets.SetBuffer("fire", "Assets/sound/fire.wav");
+	bullet_sound.setBuffer(m_assets.GetBuffer("fire"));
+	bullet_sound.play();
+}
+
 void Level::AsteroidSound(int index)
 {
 	sf::SoundBuffer buffer;
@@ -147,19 +151,6 @@ void Level::AsteroidTexture()
 	m_assets.SetTexture("Asteroid0", "Assets/Textures/Asteroid1.1.png");
 	m_assets.SetTexture("Asteroid1", "Assets/Textures/Asteroid2.1.png");
 	m_assets.SetTexture("Asteroid2", "Assets/Textures/Asteroid3.1.png");
-
-
-	/*std::string asteroids_path[3] = { "Assets/Textures/Asteroid1.1.png",
-									  "Assets/Textures/Asteroid2.1.png",
-									  "Assets/Textures/Asteroid3.1.png" };
-	
-	if (!texture0.loadFromFile(asteroids_path[0]))
-		std::cout << "cannot load asteroid texture" << std::endl;
-	if (!texture1.loadFromFile(asteroids_path[1]))
-		std::cout << "cannot load asteroid texture" << std::endl;
-	if (!texture2.loadFromFile(asteroids_path[2]))
-		std::cout << "cannot load asteroid texture" << std::endl;*/
-
 
 	int choice = rand() % 3;
 	switch (choice)
