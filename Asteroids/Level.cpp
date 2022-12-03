@@ -28,9 +28,9 @@ void Level::Init(sf::Vector2u size)
 	score_text.setFillColor(sf::Color::White);
 
 	//load Asteroid textures
-	m_assets.SetTexture("Asteroid0", "Assets/Textures/Asteroid1.1.png");
-	m_assets.SetTexture("Asteroid1", "Assets/Textures/Asteroid2.1.png");
-	m_assets.SetTexture("Asteroid2", "Assets/Textures/Asteroid3.1.png");
+	m_assets.SetTexture("Asteroid0", "Assets/Textures/Asteroid1.png");
+	m_assets.SetTexture("Asteroid1", "Assets/Textures/Asteroid2.png");
+	m_assets.SetTexture("Asteroid2", "Assets/Textures/Asteroid3.png");
 
 	//load Asteroid sounds
 	std::string explosions_path[3] = { "Assets/sound/bangSmall.wav",
