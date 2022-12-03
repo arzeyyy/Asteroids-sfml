@@ -22,8 +22,8 @@ public:
 	sf::Font &GetFont(std::string id);
 
 	//Sounds
-	void SetBuffer(sf::Sound sound, std::string id, std::string path);
-	sf::SoundBuffer &GetSoundBuffer(std::string id);
+	void SetBuffer(std::string id, std::string path);
+	sf::SoundBuffer &GetBuffer(std::string id);
 
 private:
 	std::map<std::string, sf::Texture> textures;

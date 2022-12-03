@@ -20,11 +20,7 @@ Bullet::~Bullet()
 
 void Bullet::Init(sf::Vector2f position, float angle) // of player
 {
-	if (!fire_sfx.loadFromFile("Assets/sound/fire.wav"))
-		std::cout << "cannot load fire sound";
 
-	sound.setBuffer(fire_sfx);
-	sound.play();
 
 	is_alive = true;
 	remaining_life = lifetime;

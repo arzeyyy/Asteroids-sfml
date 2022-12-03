@@ -22,15 +22,11 @@ Player::~Player()
 
 void Player::Init(sf::Vector2u size)
 {
-	//set texture
-	if (!texture.loadFromFile("Assets/Textures/asteroids_player.png"))
-	{
-		std::cout << "failed to load a player texture";
-	}
-	player.setTexture(texture);
-
-	if (!thrust_sf.loadFromFile("Assets/sound/thrust.wav"))
-		std::cout << "cannot load thrust sound";
+	//set assets
+	m_assets.SetTexture("player", "Assets/Textures/asteroids_player.png");
+	player.setTexture(m_assets.GetTexture("player"));
+	m_assets.SetBuffer("thrust", "Assets/sound/thrust.wav");
+	
 
 	//set size
 	const sf::Vector2f spriteSize(
@@ -126,7 +122,7 @@ void Player::Update(float deltaTime, sf::Vector2u size)
 
 void Player::MovePlay()
 {
-	sound.setBuffer(thrust_sf);
+	sound.setBuffer(m_assets.GetBuffer("thrust"));
 	sound.setVolume(75);
 	sound.setLoop(true);
 	sound.play();

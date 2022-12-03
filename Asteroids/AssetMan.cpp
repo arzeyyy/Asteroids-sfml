@@ -38,7 +38,7 @@ sf::Font &AssetMan::GetFont(std::string id)
 	return this->fonts.at(id);
 }
 
-void AssetMan::SetBuffer(sf::Sound sound, std::string ID, std::string path)
+void AssetMan::SetBuffer(std::string ID, std::string path)
 {
 	sf::SoundBuffer buffer;
 
@@ -48,7 +48,7 @@ void AssetMan::SetBuffer(sf::Sound sound, std::string ID, std::string path)
 	}
 }
 
-sf::SoundBuffer &AssetMan::GetSoundBuffer(std::string ID)
+sf::SoundBuffer &AssetMan::GetBuffer(std::string ID)
 {
 	return this->sound_buffers.at(ID);
 }

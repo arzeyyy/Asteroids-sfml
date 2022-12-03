@@ -1,7 +1,6 @@
 #include "Level.h"
 
 #include <iostream>
-#include <ctime>
 #include <string>
 
 const float Level::timeBetweenShots = 200.f;
@@ -40,6 +39,10 @@ void Level::onEvent(const sf::Event &event)
 		timer = timeBetweenShots;
 
 		m_bullet.Init(m_player.player.getPosition(), m_player.player.getRotation());
+		m_assets.SetBuffer("fire", "Assets/sound/fire.wav");
+		bullet_sound.setBuffer(m_assets.GetBuffer("fire"));
+		bullet_sound.play();
+
 		m_bullets.push_back(m_bullet);
 		std::cout << "bullet created" << std::endl;
 	}
@@ -134,9 +137,9 @@ void Level::AsteroidSound(int index)
 									   "Assets/sound/bangMedium.wav",
 									   "Assets/sound/bangLarge.wav" };
 
-	m_assets.SetBuffer(sound, "explosions", explosions_path[m_asteroids[index].GetLevel()]);
-	sound.setBuffer(m_assets.GetSoundBuffer("explosions"));
-	sound.play();
+	m_assets.SetBuffer("explosions", explosions_path[m_asteroids[index].GetLevel()]);
+	asteroids_sound.setBuffer(m_assets.GetBuffer("explosions"));
+	asteroids_sound.play();
 }
 
 void Level::AsteroidTexture()

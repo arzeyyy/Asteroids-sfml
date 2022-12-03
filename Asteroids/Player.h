@@ -4,6 +4,7 @@
 #include <SFML/Audio.hpp>
 
 #include "Math.h"
+#include "AssetMan.h"
 
 
 class Player
@@ -23,6 +24,9 @@ public:
 
 
 private:
+	Math *m_math;
+	AssetMan m_assets;
+
 	sf::Texture texture;
 	sf::SoundBuffer thrust_sf;
 	sf::Sound sound;
@@ -36,7 +40,6 @@ private:
 
 	int v_move, h_move;
 
-	Math *m_math;
 	sf::Vector2f velocity;
 	sf::Vector2f u_velocity;
 	float mag;

@@ -49,7 +49,7 @@ private:
     sf::Texture asteroid_texture;
 
     sf::SoundBuffer explosion_sfx;
-    sf::Sound sound;
+    sf::Sound bullet_sound, asteroids_sound;
 
     std::vector<Asteroid> m_asteroids;
     std::vector<Bullet> m_bullets;
