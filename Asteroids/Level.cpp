@@ -19,12 +19,12 @@ void Level::Init(sf::Vector2u size)
 
 	//Score(score);
 	score = 0;
-	m_assets.SetFont("Score_fnt", "Assets/fonts/digital-7.ttf");
+	m_assets.SetFont("Score_fnt", "Assets/fonts/VectorBattle.ttf");
 	score_text.setFont(m_assets.GetFont("Score_fnt"));
 	score_text.setCharacterSize(38);
 	score_text.setString(std::to_string(score));
 	score_text.setOrigin(score_text.getLocalBounds().width / 2, score_text.getLocalBounds().height / 2);
-	score_text.setPosition(20, 20);
+	score_text.setPosition(20, 25);
 	score_text.setFillColor(sf::Color::White);
 
 	//load Asteroid textures
