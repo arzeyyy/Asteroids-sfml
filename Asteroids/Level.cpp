@@ -157,20 +157,10 @@ void Level::Draw(sf::RenderWindow &m_window)
 		}
 	}
 }
-
-void Level::BulletSound()
-{
-}
-
 void Level::AsteroidSound(int index)
 {
 	asteroids_sound.setBuffer(m_assets.GetBuffer("explosion" + std::to_string(m_asteroids[index].GetLevel())));
-
 	asteroids_sound.play();
-	
-	//m_assets.SetBuffer("explosions", explosions_path[m_asteroids[index].GetLevel()]);
-	//asteroids_sound.setBuffer(m_assets.GetBuffer("explosions"));
-	//asteroids_sound.play();
 }
 
 void Level::AsteroidTexture()

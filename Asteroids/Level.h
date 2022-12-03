@@ -33,7 +33,6 @@ public:
     void Draw(sf::RenderWindow &m_window);
 
 private:
-    void BulletSound();
     void AsteroidSound(int index);
     void AsteroidTexture();
 

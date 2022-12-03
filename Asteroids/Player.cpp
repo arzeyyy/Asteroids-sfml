@@ -113,8 +113,6 @@ void Player::Update(float deltaTime, sf::Vector2u size)
 		MoveStop();
 	}
 
-
-
 	sf::Vector2f positon;
 	positon = player.getPosition();
 
