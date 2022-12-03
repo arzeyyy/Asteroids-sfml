@@ -83,12 +83,12 @@ void Level::update(float deltaTime, sf::Vector2u size)
 					m_asteroids[i].BreakDown(size, m_asteroids[i].asteroid.getPosition());
 					m_asteroids.push_back(m_asteroid);
 					m_asteroids[m_asteroids.size() - 1].AddNew_Asteroid(m_asteroids[i].asteroid.getScale(), m_asteroids[i].asteroid.getPosition(), m_asteroids[i].GetLevel(), m_asteroids[i].GetAngle());
+					AsteroidSound(i);
 					
 					//increment score
 					score += 20;
 					score_text.setString(std::to_string(score));
 
-					AsteroidSound(i);
 				}
 			}
 		}
@@ -125,19 +125,6 @@ void Level::Draw(sf::RenderWindow &m_window)
 		}
 	}
 }
-void Level::Score(int score)
-{
-	//sf::Font font;
-	//if (!font.loadFromFile("Assets/fonts/Roboto-Bold.ttf"))
-	//	std::cout << "cannot load a font" << std::endl;
-	//
-	//score_text.setFont(font);
-	//score_text.setCharacterSize(20);
-	//score_text.setFillColor(sf::Color::White);
-	//score_text.setString("cs");
-	//
-	//std::cout << score << std::endl;
-}
 
 void Level::AsteroidSound(int index)
 {
@@ -148,11 +135,8 @@ void Level::AsteroidSound(int index)
 									   "Assets/sound/bangLarge.wav" };
 
 	m_assets.SetBuffer(sound, "explosions", explosions_path[m_asteroids[index].GetLevel()]);
-
-	//if (!explosion_sfx.loadFromFile(explosions_path[m_asteroids[index].GetLevel()]))
-	//{
-	//	std::cout << "cannot load asteroid explosion_sfx" << std::endl;
-	//}
+	sound.setBuffer(m_assets.GetSoundBuffer("explosions"));
+	sound.play();
 }
 
 void Level::AsteroidTexture()

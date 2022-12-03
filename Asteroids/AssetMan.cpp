@@ -45,8 +45,6 @@ void AssetMan::SetBuffer(sf::Sound sound, std::string ID, std::string path)
 	if (buffer.loadFromFile(path))
 	{
 		this->sound_buffers[ID] = buffer;
-		sound.setBuffer(buffer);
-		sound.play();
 	}
 }
 
