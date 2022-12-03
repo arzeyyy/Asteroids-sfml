@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-const float Bullet::lifetime = 2200.f;
-const float Bullet::speed = 180.f;
+const float Bullet::lifetime = 2700.f;
+const float Bullet::speed = 115.f;
 
 Bullet::Bullet()
 {
@@ -20,8 +20,6 @@ Bullet::~Bullet()
 
 void Bullet::Init(sf::Vector2f position, float angle) // of player
 {
-
-
 	is_alive = true;
 	remaining_life = lifetime;
 	size = sf::Vector2f(5.f, 5.f);

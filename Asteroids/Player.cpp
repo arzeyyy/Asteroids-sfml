@@ -138,7 +138,7 @@ void Player::Update(float deltaTime, sf::Vector2u size)
 
 void Player::MovePlay()
 {
-	sound.setVolume(75);
+	sound.setVolume(45);
 	sound.setLoop(true);
 	sound.play();
 }

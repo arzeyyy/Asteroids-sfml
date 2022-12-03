@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
 #include "Math.h"
 
@@ -30,10 +29,6 @@ public:
 private:
 	Math *m_math;
 	sf::Vector2f direction;
-
-	sf::SoundBuffer explosion_sfx;
-	/*sf::Texture texture0, texture1, texture2;*/
-	sf::Sound sound;
 
 	float speed;
 	float angle;

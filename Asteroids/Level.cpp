@@ -33,17 +33,20 @@ void Level::Init(sf::Vector2u size)
 	m_assets.SetTexture("Asteroid2", "Assets/Textures/Asteroid3.1.png");
 
 	//load Asteroid sounds
-	//std::string explosions_path[3] = { "Assets/sound/bangSmall.wav",
-	//								   "Assets/sound/bangMedium.wav",
-	//								   "Assets/sound/bangLarge.wav" };
+	std::string explosions_path[3] = { "Assets/sound/bangSmall.wav",
+									   "Assets/sound/bangMedium.wav",
+									   "Assets/sound/bangLarge.wav" };
 
-	//m_assets.SetBuffer("explosion0", explosions_path[0]);
-	//m_assets.SetBuffer("explosion1", explosions_path[1]);
-	//m_assets.SetBuffer("explosion2", explosions_path[2]);
+	m_assets.SetBuffer("explosion0", explosions_path[0]);
+	m_assets.SetBuffer("explosion1", explosions_path[1]);
+	m_assets.SetBuffer("explosion2", explosions_path[2]);
 
 	//load Bullet sounds
 	m_assets.SetBuffer("fire", "Assets/sound/fire.wav");
 	bullet_sound.setBuffer(m_assets.GetBuffer("fire"));
+
+	bullet_sound.setVolume(65);
+	asteroids_sound.setVolume(65);
 
 }
 
@@ -70,7 +73,7 @@ void Level::update(float deltaTime, sf::Vector2u size)
 
 
 	//std::cout << m_asteroids.size() << std::endl;
-	if (m_asteroids.size() <= 6)
+	if (m_asteroids.size() <= 10)
 	{
 		for (int i = 0; i < rand() % 2; i++)
 		{
@@ -102,7 +105,7 @@ void Level::update(float deltaTime, sf::Vector2u size)
 					m_asteroids[i].BreakDown(size, m_asteroids[i].asteroid.getPosition());
 					m_asteroids.push_back(m_asteroid);
 					m_asteroids[m_asteroids.size() - 1].AddNew_Asteroid(m_asteroids[i].asteroid.getScale(), m_asteroids[i].asteroid.getPosition(), m_asteroids[i].GetLevel(), m_asteroids[i].GetAngle());
-					//AsteroidSound(i);
+					AsteroidSound(i);
 
 					//increment score
 					score += 20;
@@ -161,8 +164,9 @@ void Level::BulletSound()
 
 void Level::AsteroidSound(int index)
 {
-	//asteroids_sound.setBuffer(m_assets.GetBuffer("explosion" + std::to_string(m_asteroids[index].GetLevel())));
-	//asteroids_sound.play();
+	asteroids_sound.setBuffer(m_assets.GetBuffer("explosion" + std::to_string(m_asteroids[index].GetLevel())));
+
+	asteroids_sound.play();
 	
 	//m_assets.SetBuffer("explosions", explosions_path[m_asteroids[index].GetLevel()]);
 	//asteroids_sound.setBuffer(m_assets.GetBuffer("explosions"));

@@ -131,13 +131,6 @@ void Asteroid::PlayBreakSound(int level)
 									   "Assets/sound/bangMedium.wav",
 									   "Assets/sound/bangLarge.wav" };
 
-	if (!explosion_sfx.loadFromFile(explosions_path[level]))
-	{
-		std::cout << "cannot load asteroid explosion_sfx" << std::endl;
-	}
-
-	sound.setBuffer(explosion_sfx);
-	sound.play();
 }
 int Asteroid::GetLevel()
 {

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
 
 #include "Math.h"
 
@@ -13,8 +12,8 @@ class Bullet
 public:
 	sf::RectangleShape bullet;
 
-	sf::SoundBuffer fire_sfx;
-	sf::Sound sound;
+	//sf::SoundBuffer fire_sfx;
+	//sf::Sound sound;
 
 	Bullet();
 	~Bullet();
