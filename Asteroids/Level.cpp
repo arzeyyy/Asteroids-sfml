@@ -49,6 +49,7 @@ void Level::update(float deltaTime, sf::Vector2u size)
 {
 	timer -= deltaTime;
 	m_player.Update(deltaTime, size);
+	
 
 	//std::cout << m_asteroids.size() << std::endl;
 	if (m_asteroids.size() <= 6)
@@ -71,7 +72,7 @@ void Level::update(float deltaTime, sf::Vector2u size)
 		{
 			if (m_bullets[j].isAlive())
 			{
-				//collisions
+				//collisions bullet-asteroids
 				if (!m_bullets[j].bullet.getGlobalBounds().intersects(m_asteroids[i].asteroid.getGlobalBounds()))
 				{
 					m_bullets[j].Update(deltaTime);
@@ -92,6 +93,13 @@ void Level::update(float deltaTime, sf::Vector2u size)
 				}
 			}
 		}
+		//collisions player-asteroids
+		if (m_asteroids[i].asteroid.getGlobalBounds().intersects(m_player.player.getGlobalBounds()))
+		{
+			m_player.Kill(); 
+		}
+
+		//asteroids update
 		if (m_asteroids[i].IsAlive())
 		{
 			m_asteroids[i].Update(deltaTime, size);
@@ -105,9 +113,12 @@ void Level::update(float deltaTime, sf::Vector2u size)
 
 void Level::Draw(sf::RenderWindow &m_window)
 {
-	m_player.Draw(m_window);
 	m_window.draw(score_text);
 
+	if (m_player.IsAlive())
+	{
+		m_player.Draw(m_window);
+	}
 	//draw asteroids
 	for (int i = 0; i < m_asteroids.size(); i++)
 	{
@@ -135,8 +146,6 @@ void Level::BulletSound()
 
 void Level::AsteroidSound(int index)
 {
-	sf::SoundBuffer buffer;
-
 	std::string explosions_path[3] = { "Assets/sound/bangSmall.wav",
 									   "Assets/sound/bangMedium.wav",
 									   "Assets/sound/bangLarge.wav" };

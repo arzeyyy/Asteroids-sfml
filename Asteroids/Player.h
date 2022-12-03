@@ -17,6 +17,8 @@ public:
 	float y_dir;
 
 	sf::Sprite player;
+	bool IsAlive();
+	void Kill();
 	void Draw(sf::RenderWindow &m_window);
 	void OnEvent(const sf::Event event);
 	void Init(sf::Vector2u size);
@@ -33,6 +35,7 @@ private:
 
 	bool play_thrust;
 	bool play_one = false;
+	bool is_alive;
 
 	static const float acceleration;
 	static const float rotateSpeed;

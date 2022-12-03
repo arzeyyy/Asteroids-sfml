@@ -20,8 +20,20 @@ Player::~Player()
 {
 }
 
+bool Player::IsAlive() 
+{
+	return is_alive;
+}
+
+void Player::Kill()
+{
+	is_alive = false;
+}
+
 void Player::Init(sf::Vector2u size)
 {
+	is_alive = true;
+
 	//set assets
 	m_assets.SetTexture("player", "Assets/Textures/asteroids_player.png");
 	player.setTexture(m_assets.GetTexture("player"));
@@ -61,6 +73,8 @@ void Player::OnEvent(const sf::Event event)
 
 void Player::Update(float deltaTime, sf::Vector2u size)
 {
+	if (!is_alive) return;
+
 	if (h_move != 0)
 	{
 		player.rotate(h_move * rotateSpeed * deltaTime);
