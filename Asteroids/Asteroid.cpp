@@ -63,7 +63,6 @@ void Asteroid::BreakDown(sf::Vector2u size, sf::Vector2f asteroid_pos)
 {
 	level--;
 
-
 	if (level >= 0)
 	{
 		std::cout << level << std::endl;
@@ -118,13 +117,6 @@ void Asteroid::AddNew_Asteroid(sf::Vector2f scale, sf::Vector2f asteroid_pos, in
 
 	direction.x = -cos(m_math->Deg2Rad(angle));
 	direction.y = sin(m_math->Deg2Rad(angle));
-}
-void Asteroid::PlayBreakSound(int level)
-{
-	std::string explosions_path[3] = { "Assets/sound/bangSmall.wav",
-									   "Assets/sound/bangMedium.wav",
-									   "Assets/sound/bangLarge.wav" };
-
 }
 int Asteroid::GetLevel()
 {

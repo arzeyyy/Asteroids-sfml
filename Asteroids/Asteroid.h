@@ -19,7 +19,6 @@ public:
 	void Update(float deltaTime, sf::Vector2u size);
 	void BreakDown(sf::Vector2u size, sf::Vector2f asteroid_pos);
 	void AddNew_Asteroid(sf::Vector2f size_prev, sf::Vector2f asteroid_pos, int levelprev, float angle_prev);
-	void PlayBreakSound(int level);
 	void Draw(sf::RenderWindow &m_window);
 	int GetLevel();
 	float GetAngle();
