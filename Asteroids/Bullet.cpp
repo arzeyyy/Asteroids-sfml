@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-const float Bullet::lifetime = 2700.f;
+const float Bullet::lifetime = 3000.f;
 const float Bullet::speed = 115.f;
 
 Bullet::Bullet()

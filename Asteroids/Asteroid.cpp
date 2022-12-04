@@ -30,14 +30,8 @@ void Asteroid::Init(sf::Vector2u size)
 	is_alive = true;
 	level = 3;
 	asteroid = asteroid;
-	//for (auto& texture : std::filesystem::recursive_directory_iterator(asteroids_path))
-	//{
-	//	std::cout << texture << std::endl;
-	//
-	//}
 
 	//set position
-
 	sf::Vector2f position = SpawnPoints(size);
 	asteroid.setPosition(position);
 	std::cout << "x: " << position.x << " " << "y: " << position.y << std::endl;

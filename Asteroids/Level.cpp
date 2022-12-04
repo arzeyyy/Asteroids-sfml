@@ -73,7 +73,7 @@ void Level::update(float deltaTime, sf::Vector2u size)
 
 
 	//std::cout << m_asteroids.size() << std::endl;
-	if (m_asteroids.size() <= 10)
+	if (m_asteroids.size() <= 11)
 	{
 		for (int i = 0; i < rand() % 2; i++)
 		{
