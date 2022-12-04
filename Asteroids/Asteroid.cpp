@@ -54,7 +54,6 @@ void Asteroid::Update(float deltaTime, sf::Vector2u size)
 
 	sf::Vector2f velocity = direction * speed * deltaTime;
 
-
 	Wrap(size);
 	asteroid.move(velocity);
 
